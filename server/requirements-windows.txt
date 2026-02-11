@@ -1,0 +1,6 @@
+SpoutGL>=0.0.4
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+websockets>=14.0
+opencv-python-headless>=4.10.0
+numpy>=1.26.0

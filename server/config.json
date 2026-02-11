@@ -1,0 +1,7 @@
+{
+  "host": "0.0.0.0",
+  "port": 8765,
+  "mjpeg_quality": 80,
+  "max_fps": 60,
+  "discovery_interval_sec": 5
+}

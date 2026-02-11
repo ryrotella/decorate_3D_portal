@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+client/node_modules/
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+server/venv/
+
+# Build output
+dist/
+client/dist/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Environment
+.env
+*.local
+
+# Claude internal
+.claude/
+
+# Session Notes
+
+SessionNotes/
+
+# Testing
+
+Testing/
+
+# To Build
+
+ToBuild/
+
+# Original prompt
+
+original_Prompt.md
