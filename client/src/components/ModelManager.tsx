@@ -140,6 +140,23 @@ const ModelManager: React.FC<ModelManagerProps> = ({
                   <SliderRow label="S" value={model.scale} min={0.01} max={3} step={0.01}
                     onChange={(v) => onUpdateModel(model.id, { scale: v })} />
 
+                  {/* Light */}
+                  <div className="text-[9px] text-gray-600 uppercase tracking-wider mt-1.5 mb-0.5">Light</div>
+                  <SliderRow label="Int" value={model.lightIntensity} min={0} max={3} step={0.01}
+                    onChange={(v) => onUpdateModel(model.id, { lightIntensity: v })} />
+                  <SliderRow label="Dist" value={model.lightDistance} min={0} max={2} step={0.01}
+                    onChange={(v) => onUpdateModel(model.id, { lightDistance: v })} />
+                  <div className="flex items-center gap-1.5">
+                    <label className="text-[10px] text-gray-500 w-6 shrink-0">Col</label>
+                    <input
+                      type="color"
+                      value={model.lightColor}
+                      onChange={(e) => onUpdateModel(model.id, { lightColor: e.target.value })}
+                      className="h-5 w-8 bg-transparent border border-gray-600 rounded cursor-pointer"
+                    />
+                    <span className="text-[10px] text-gray-500">{model.lightColor}</span>
+                  </div>
+
                   {/* Animations */}
                   {model.animationCount > 0 && (
                     <>
@@ -180,6 +197,7 @@ const ModelManager: React.FC<ModelManagerProps> = ({
                       posX: 0, posY: 0, posZ: 0,
                       rotX: 0, rotY: 0, rotZ: 0,
                       scale: 1,
+                      lightIntensity: 0.5, lightColor: '#ffffff', lightDistance: 0.5,
                     })}
                     className="w-full mt-1.5 text-[10px] py-0.5 text-gray-500 hover:text-white bg-gray-700 hover:bg-gray-600 rounded transition-colors"
                   >

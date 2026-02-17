@@ -10,6 +10,7 @@ interface ModelRecord {
   config: ModelEntry;
   baseScale: number;
   activeAction: THREE.AnimationAction | null;
+  light: THREE.PointLight;
 }
 
 export class ModelManager {
@@ -57,6 +58,15 @@ export class ModelManager {
       mixer = new THREE.AnimationMixer(gltf.scene);
     }
 
+    // Create attached point light
+    const light = new THREE.PointLight(
+      new THREE.Color(entry.lightColor),
+      entry.lightIntensity,
+      entry.lightDistance,
+    );
+    light.visible = entry.lightIntensity > 0;
+    group.add(light);
+
     const updatedEntry: ModelEntry = {
       ...entry,
       animationCount: clips.length,
@@ -69,6 +79,7 @@ export class ModelManager {
       config: updatedEntry,
       baseScale,
       activeAction: null,
+      light,
     });
 
     this.scene.add(group);
@@ -120,6 +131,14 @@ export class ModelManager {
     record.group.rotation.set(c.rotX * deg, c.rotY * deg, c.rotZ * deg);
     record.group.scale.setScalar(record.baseScale * c.scale);
     record.group.visible = c.visible;
+
+    // Handle light changes
+    if (config.lightIntensity !== undefined || config.lightColor !== undefined || config.lightDistance !== undefined) {
+      record.light.intensity = c.lightIntensity;
+      record.light.color.set(c.lightColor);
+      record.light.distance = c.lightDistance;
+      record.light.visible = c.lightIntensity > 0;
+    }
 
     // Handle animation changes
     if (config.animationPlaying !== undefined || config.activeAnimationIndex !== undefined) {

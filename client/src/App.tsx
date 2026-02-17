@@ -131,6 +131,9 @@ function App() {
       animationPlaying: false,
       activeAnimationIndex: -1,
       animationCount: 0,
+      lightIntensity: 0.5,
+      lightColor: '#ffffff',
+      lightDistance: 0.5,
     };
     const updated = await threeViewRef.current?.addModel(entry, buffer);
     setModelEntries((prev) => [...prev, updated ?? entry]);

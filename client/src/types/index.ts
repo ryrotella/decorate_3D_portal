@@ -61,6 +61,12 @@ export interface ModelEntry {
   animationPlaying: boolean;
   activeAnimationIndex: number;
   animationCount: number;
+  /** Attached point light intensity (0 = off) */
+  lightIntensity: number;
+  /** Attached point light color as hex string */
+  lightColor: string;
+  /** Light distance/range (0 = unlimited) */
+  lightDistance: number;
 }
 
 export type RoomSurface = 'back' | 'left' | 'right' | 'ceiling' | 'floor' | 'free';
