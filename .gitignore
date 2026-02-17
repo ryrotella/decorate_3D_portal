@@ -42,3 +42,6 @@ ToBuild/
 # Original prompt
 
 original_Prompt.md
+
+*.md
+!README.md
