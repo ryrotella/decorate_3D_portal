@@ -1,4 +1,4 @@
-# JohnnyChung3D
+# Decorate Your Own 3D Portal!
 
 Real-time head-tracked 3D perspective viewer inspired by [Johnny Chung Lee's Wii Remote head tracking](https://johnnylee.net/projects/wii/). Move your head and the on-screen scene shifts perspective as if you're looking through a window into a 3D space.
 
